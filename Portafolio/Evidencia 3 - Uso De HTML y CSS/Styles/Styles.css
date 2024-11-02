@@ -1,0 +1,14 @@
+.form-container {
+  max-width: 800px;
+  margin: 50px auto;
+}
+
+.form-container h3 {
+  margin-bottom: 20px;
+}
+
+.form-container small {
+  display: block;
+  margin-bottom: 20px;
+  font-style: italic;
+}

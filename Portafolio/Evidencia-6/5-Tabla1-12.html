@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Tabla de Multiplicar</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script>
+        function generarTabla() {
+            const valor = document.getElementById("selectValor").value;
+            const tabla = document.getElementById("tabla");
+
+            let contenido = `<h5 class="text-center">Tabla de multiplicar del ${valor}</h5>`;
+            contenido += `<table class="table table-striped table-bordered mt-3">`;
+            contenido += `<thead><tr><th>Operación</th><th>Resultado</th></tr></thead><tbody>`;
+
+            for (let i = 1; i <= 12; i++) {
+                contenido += `<tr><td>${i} x ${valor}</td><td>${i * valor}</td></tr>`;
+            }
+            contenido += `</tbody></table>`;
+
+
+            tabla.innerHTML = contenido;
+        }
+    </script>
+</head>
+<body class="bg-light">
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h1 class="text-center mb-4">Generador de Tabla de Multiplicar</h1>
+
+                <div class="mb-3">
+                    <label for="selectValor" class="form-label">Seleccione un número del 1 al 10:</label>
+                    <select class="form-select" id="selectValor">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </div>
+
+                <button class="btn btn-primary w-100" onclick="generarTabla()">Generar Tabla</button>
+
+                <div id="tabla" class="mt-4"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

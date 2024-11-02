@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Tabla de Multiplicar</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script>
+  
+        function generarTabla() {
+            const valor = document.getElementById("valor").value;
+            const tabla = document.getElementById("tabla");
+         
+            let contenido = `<h5 class="text-center">Tabla de multiplicar del ${valor}</h5>`;
+            contenido += `<ul class="list-group">`;
+            for (let i = 1; i <= 12; i++) {
+                contenido += `<li class="list-group-item">${i} x ${valor} = ${i * valor}</li>`;
+            }
+            contenido += `</ul>`;
+        
+            tabla.innerHTML = contenido;
+         
+            const modal = new bootstrap.Modal(document.getElementById('tablaModal'));
+            modal.show();
+        }
+    </script>
+</head>
+<body class="bg-light">
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h1 class="mb-4 text-center">Generador de Tabla de Multiplicar</h1>
+
+                <div class="mb-3">
+                    <label for="valor" class="form-label">Ingrese un número del 1 al 10:</label>
+                    <input type="number" class="form-control" id="valor" placeholder="Escriba un número del 1 al 10" min="1" max="10">
+                </div>
+
+                <button class="btn btn-primary w-100" onclick="generarTabla()">Generar Tabla</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="tablaModal" tabindex="-1" aria-labelledby="tablaModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="tablaModalLabel">Tabla de Multiplicar</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="tabla">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
